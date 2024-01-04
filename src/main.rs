@@ -1,5 +1,4 @@
 // src/main.rs
-
 mod schorr;
 fn main() {
     //println!("Hello, world!");
@@ -10,7 +9,16 @@ fn main() {
 
     let a = schorr::array_to_bigint(&numb);
     println!("{}", a);
+
+    println!("{}", schorr::miller_rabin(&a, 128));
+    loop {
+        let a = &schorr::array_to_bigint(&schorr::rand_gen());
+        let is_prime = schorr::miller_rabin(&a, 128);
+        println!("{}: {}", is_prime, a);
+        if is_prime {
+            break;
+        }
+    }
     // let binary_string = format!("{:08b}", numb);
     // println!("Binary representation: {}", binary_string);
-    schorr::test(&numb);
 }
