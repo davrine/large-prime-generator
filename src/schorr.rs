@@ -46,6 +46,16 @@ pub fn miller_rabin(n: &BigUint, k: u32) -> bool {
             }
         }
     }
-
     true
+}
+
+pub fn gen_prime() -> BigUint{
+    loop {
+        let rand_num = &array_to_bigint(&rand_gen());
+        let is_prime = miller_rabin(&rand_num, 128);
+        println!("{}: {}", is_prime, rand_num);
+        if is_prime {
+            return rand_num.clone()
+        }
+    }
 }

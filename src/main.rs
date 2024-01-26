@@ -11,14 +11,15 @@ fn main() {
     println!("{}", a);
 
     println!("{}", schorr::miller_rabin(&a, 128));
-    loop {
-        let a = &schorr::array_to_bigint(&schorr::rand_gen());
-        let is_prime = schorr::miller_rabin(&a, 128);
-        println!("{}: {}", is_prime, a);
-        if is_prime {
-            break;
-        }
-    }
+    // loop {
+    //     let a = &schorr::array_to_bigint(&schorr::rand_gen());
+    //     let is_prime = schorr::miller_rabin(&a, 128);
+    //     println!("{}: {}", is_prime, a);
+    //     if is_prime {
+    //         break;
+    //     }
+    // }
+    schorr::gen_prime();
     // let binary_string = format!("{:08b}", numb);
     // println!("Binary representation: {}", binary_string);
 }
